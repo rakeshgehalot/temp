@@ -1,0 +1,54 @@
+Abstract 
+
+Memory controller is a part of digital system. Memory controller works as a bridge between microprocessor and memory. 
+It is used to control the data flow (read and write) between microprocessor work as master and memory work as slave.
+A memory controller should know how much memory it has.CPU or other devices wait for memory controller responce to access memory.
+Traditionally memory controllers were placed outside the microprocessor because of that access latency is more for a read 
+or write of data. Now day’s memory controller is on same die as microprocessor which makes a system on chip and it reduce 
+the latency. In this project I am designing a AMBA-AHB based memory SRAM memory controller. I used simple SRAM with 8 bit 
+data width, 32 bit address width and size of SRAM is 1 KB. Memory controller is based on ARM Advance Bus Protocol AHB. Advance high speed bus protocol features burst mode (4-beats/8-beats/16-beat), Error handling, Transfer size option(8-bit/16-bit/32-bit) are implemented in project.   
+To design a memory controller we have to first specify the finite state machine for our design which is the heart of memory controller. 
+Finite state machine of memory contoller will handle the all data transfer between master and slave. Objective of project is to improve the through put 
+of data transfer by introduing interleaving in memory access. There are 2 memory banks used for interleaving which will be accessed in circuler 
+manner. 
+
+
+
+Memory is slower than processor. In normal flat memory layout uses continuous address in same memory bank which has memory access latency and it decrease the throughput of system.  If memory takes two clock cycles of processor to response and addresses it is receiving at every clock cycle then the memory it wasting 50 percent of time. If we use this time to send address to another memory chip or bank which also have same latency of response then these two memory bank or chip can be used as alternative way to access the data from memory and to write a data to memory. For example address 00 will belong to memory bank 0, address 01 will belong to memory bank-1, address 10 will belong to memory bank-2 and address 11 will belong to memory bank-3.  This method of using memory in alternative way is called interleaving access of memory. There can be n-way interleaved memory in which there are n memory banks and the address A is resides in memory bank- (A % n).  This method will increase the throughput of memory and double the data rate from pervious method of single memory access. So over all latency of system is decreased by interleaving method.  In execution of a program or multimedia read and write both uses continuous memory address actually using each memory bank in alternative way. 
+
+References 
+http://www.cs.uwm.edu/classes/cs458/Lecture/HTML/ch09s08.html
+https://en.wikipedia.org/wiki/Interleaved_memory
+http://www.ques10.com/p/8731/explain-various-high-speed-memories-such-as-inte-3/
+https://www.cs.umd.edu/class/sum2003/cmsc311/Notes/Memory/interleaved.html
+
+
+Introduction 
+
+
+Background:
+	Memory is a device which used to store information in the form of binary data which will be used for future purpose. 
+	“If we could not remember past events, we could not learn or develop language, relationships, nor personal identity” []
+	In computing memory is used to store data or information for immediate use or for a long term use of data. There are two type broad category of memory in computing.
+	1.	Primary 
+	2.	Secondary 
+	 Primary Memory: 
+
+Computer uses the memory to store the program which will be executed in near future. These programs are stored in primary memory by computer to use frequently in near future. Primary memory also called main memory or physical memory. In computer speed of Processor is higher than memory device. To access the data from memory will lead to slow down the overall throughput. Speed of primary memory is higher than speed of secondary memory. Computer continuous read and write data from and to primary memory.  
+Main memory is connected to central processing unit by directly or via cache memory or registers. It has two buses one for data transfer (DATA BUS) and another for address (ADDR BUS). First CPU sends the address, the location where it wants to write or read data. Then it sends data as information. In addition we can use memory management unit for translating virtual address to physical address which will introduce the concept of virtual memory.  
+This lead to modern random access memory which is small size and light weight.
+
+Beside from random access memory there are two sub layer of primary memory.
+1. Registers:  
+Register are located inside the processor. Register can be different size like 32 bit or 64 bit. These register are used to store temporary data for different calculation by CPU.  Registers are fastest from all other data storages memories.  
+
+2. Cache Memory: 
+Cache memory is most tightly connected memory with computer processor. Its fastest memory but also more costly than other category of memories. This memory is used in less amount because of it is expansive. Most frequently used information is copied from main to cache for increasing the performance. There can be multilevel cache also which have different locality with processor.  
+
+
+Secondary memory :
+
+
+ 
+     
+
