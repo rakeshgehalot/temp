@@ -1,0 +1,30 @@
+
+
+
+Memory interfacing method 
+Interfacing the memory with the processor is a way of communicating between two devices. Interfacing is of two types. 
+1.	Memory mapped interfacing 
+In memory mapped interfacing the address bus is shared with memory and other peripheral devices. The address bus is used to decode chip select. Extra hardware is required for decoding purpose.  Arithmetic and logic operations can be directly performed with memory and I/O devices. 
+2.	I/O mapped interfacing
+In this interfacing, I/O devices are connected to a memory device. Generally, 8 bit of address bus is used for interfacing. The processor uses same control signals and instructions to access I/O as those of memory, here RD and WR signals are activated indicating memory bus cycle. For address bus of width 8 bit, 256 of input or output devices can be connected. 
+
+Ways of Communication − Microprocessor with the Outside World
+
+There are two ways of communication in which the microprocessor can communicate with the outside world.
+
+1.Serial Communication Interface
+Parallel Communication interface
+Serial Communication Interface − In this type of communication, the interface gets a single byte of data from the microprocessor and
+ sends it bit by bit to the other system serially and vice-a-versa.
+
+Parallel Communication Interface − In this type of communication, the interface gets a byte of data from the microprocessor and 
+sends it bit by bit to the other systems in parallel fashion and vice-a-versa.
+
+
+Memory access method 
+There are two type of memory access method 
+1.	Synchronous
+ In synchronous memory access, method reference clock is used to access the memory. The processor can access data from memory at any time with the reference clock. There is no need of waiting for arbiter time. Data will be accessed with raising edge or falling edge of the clock. For example SRAM, DRAM.
+2.	Asynchronous memory access 
+In asynchronous memory access data is accessed without reference clock. There can be a random wait time of data arrival from memory. This random time is the latency of the memory.   
+If the CPU has transferred data while a window is open, and if a subsequent clock cycle occurs while that window remains open, the CPU cannot transfer additional data until the next window opens, thereby wasting that clock cycle. Asynchronous operation forces the CPU to conform to a fixed schedule for transferring data, rather than doing so whenever it wishes. 
